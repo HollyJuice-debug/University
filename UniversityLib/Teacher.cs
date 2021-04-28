@@ -59,9 +59,25 @@ namespace University
             ScientificPapersCount = scientificPapersCount;
             EducatesStudents = educatesStudents;
         }
+        /// <summary>
+        /// Информация о преподавателе в виде строки
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return base.ToString() + $"\nСтаж: {WorkExperience} лет\nКол-во научных работ: {ScientificPapersCount}\nКол-во обучаемых студентов: {EducatesStudents}";
+        }
 
-
-
-
+        public override bool IsContains(string text)
+        {
+            text = text.ToUpper();
+            if (WorkExperience.ToString().Contains(text)
+                || ScientificPapersCount.ToString().Contains(text)
+                || EducatesStudents.ToString().Contains(text)
+                || Name.ToUpper().Contains(text)
+                || Age.ToString().Contains(text)
+                || Sex.ToString().Contains(text)) return true;
+            else return false;
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace University
     /// <summary>
     /// Персона
     /// </summary>
-    public class Person
+    public abstract class Person
     {
         /// <summary>
         /// Имя
@@ -128,5 +128,23 @@ namespace University
         {
             return DateTime.Now.Year - Age;
         }
+
+        /// <summary>
+        /// Информация о персоне в виде строки
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            string baseLine = $"Имя: {Name}\nВозраст: {Age}\nПол ";
+            if (Sex == Gender.Male)return baseLine + "мужской";
+            else if(Sex == Gender.Female) return baseLine + "женский";
+            else return baseLine + "не указан";
+        }
+        /// <summary>
+        /// Содержат ли свойства объекта заданную строку
+        /// </summary>
+        /// <param name="text">Искомая строка</param>
+        /// <returns></returns>
+        public abstract bool IsContains(string text);
     }
 }

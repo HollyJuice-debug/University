@@ -9,7 +9,8 @@ namespace University
     {
         static void Main(string[] args)
         {
-            Person person = new Person("Анатолий И.А.", 29, Gender.Male);
+            Menu menu = new Menu();
+            Menu.Run();
         }
     }
 }

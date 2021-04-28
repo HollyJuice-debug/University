@@ -54,5 +54,26 @@ namespace University
         {
             return AverageRating - 3.7;
         }
+
+        /// <summary>
+        /// Информация о студенте в виде строки
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            if(Commerce)return base.ToString() + $"\nСредняя оценка студента: {AverageRating}\nКурс: {CourseNumber}\nОснование обучения: Коммерция";
+            else return base.ToString() + $"\nСредняя оценка студента: {AverageRating}\nКурс: {CourseNumber}\nОснование обучения: Бюджет";
+        }
+        public override bool IsContains(string text)
+        {
+            text = text.ToUpper();
+            if (AverageRating.ToString().Contains(text)
+                || CourseNumber.ToString().Contains(text)
+                || Commerce.ToString().Contains(text)
+                || Name.ToUpper().Contains(text)
+                || Age.ToString().Contains(text)
+                || Sex.ToString().Contains(text)) return true;
+            else return false;
+        }
     }
 }
